@@ -1,0 +1,18 @@
+#root {
+  /* max-width: 1280px; */
+  margin: 0 auto;
+  padding: 50px 10px 50px 10px;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+}
+
+.borderR {
+  border-radius: 5px;
+}
+
+#my-canvas {
+  max-height: 600px;
+  width: 100%;
+  border-radius: 5px;
+}
