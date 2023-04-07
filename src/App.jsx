@@ -4,7 +4,7 @@ import './App.css'
 import Geocoder from './GeoCoderSearch.jsx'
 import {  Container, Typography, Paper, Menu, MenuItem, Grow, Box, Button, CircularProgress, LinearProgress } from "@mui/material";
 
-import useStyles from "./styles";
+// import useStyles from "./styles";
 
 import 'mapbox-gl/dist/mapbox-gl.css';
 
@@ -21,7 +21,7 @@ function App() {
   
   const [loading, setLoading] = useState(false);
 
-  const classes = useStyles();
+  // const classes = useStyles();
   const mapRef = useRef();
   const [showMap, setShowMap] = React.useState(false);
   const [mapStyle, setMapStyle] = React.useState('mapbox://styles/mapbox/satellite-streets-v12');
@@ -165,8 +165,8 @@ function App() {
     <div>
       <Grow in>
         <Container maxWidth="xl">
-          <Box className={classes.outerBox} > 
-            <Box className={classes.responsiveBar} sx={{width:"100%"}}>
+          <Box sx={{display: 'flex', flexDirection:'row', '@media (max-width:600px)':{ flexDirection:'column'} ,justifyContent:'space-between', alignItems:'center' ,m: 1,padding:'10px',background:'white',color: 'grey.300',borderColor: 'transparent',borderRadius: 2}} > 
+            <Box sx={{width:"100%"}}>
               <Typography sx={{ color:'#000', fontSize:'2rem'}} >
                 Snaptrude Assignment - <span style={{fontSize:'1.5rem'}}>Made by Yuvraj</span>
               </Typography>
@@ -186,7 +186,7 @@ function App() {
                   <FullscreenControl position="top-left"/>
                   <GeolocateControl position="top-left" onGeolocate={(e)=> {setLat(e.coords.latitude); setLng(e.coords.longitude)}} showUserLocation={true} />
 
-                  <Button className={classes.mapOptionBtn} variant="contained" color="primary" aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
+                  <Button sx={{height:'100%',margin:'10px 10px 10px 10px !important'}} variant="contained" color="primary" aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
                     Map / Globe
                   </Button>
                   <Menu
@@ -200,7 +200,7 @@ function App() {
                     <MenuItem onClick={()=>{handleClose(2)}}>Globe</MenuItem>
                   </Menu>
 
-                  <Button className={classes.mapOptionBtn} variant="contained" color="primary" aria-controls="simple-menu2" aria-haspopup="true" onClick={handleClick2}>
+                  <Button sx={{height:'100%',margin:'10px 10px 10px 10px !important'}} variant="contained" color="primary" aria-controls="simple-menu2" aria-haspopup="true" onClick={handleClick2}>
                     Sattelite / Outdoors
                   </Button>
                   <Menu
@@ -214,7 +214,7 @@ function App() {
                     <MenuItem onClick={()=>{handleClose2(2)}}>Outdoors</MenuItem>
                   </Menu>
 
-                    <Button className={classes.mapOptionBtn} onClick={()=>handleSnapshot()} sx={{height:'100%'}} color="success" variant="contained" >
+                    <Button sx={{height:'100%',margin:'10px 10px 10px 10px !important'}} onClick={()=>handleSnapshot()} color="success" variant="contained" >
                       Capture Image
                     </Button>
 
@@ -223,7 +223,7 @@ function App() {
           </Box>
           <img id="mapImage" className="borderR" src="/images/clickInstruction.jpg" style={{maxHeight:'600px', width:'100%', marginBottom:'50px'}} alt="" />
 
-          <Button className={classes.mapOptionBtn} onClick={()=>{setLoading(true);setCapturedImg(imgUrl)}} color="secondary" variant="contained">
+          <Button sx={{height:'100%',margin:'10px 10px 10px 10px !important'}} onClick={()=>{setLoading(true);setCapturedImg(imgUrl)}} color="secondary" variant="contained">
             {loading ? <div style={{minWidth:'150px', height:'25px'}}><LinearProgress /></div> : 'Apply above image to 3d model'}
           </Button>
           <Paper>
